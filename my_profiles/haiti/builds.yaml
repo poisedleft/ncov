@@ -11,8 +11,8 @@ inputs:
     metadata: "/data/gisaid/haiti_05242020.metadata.tsv"
     sequences: "/data/gisaid/haiti_05242020.sequences.fasta"
   - name: "worldwide"
-    metadata: "/data/gisaid/ncov_global.metadata.tsv"
-    sequences: "/data/gisaid/ncov_global.fasta"
+    metadata: "/data/gisaid/05262021/ncov_global.tsv"
+    sequences: "/data/gisaid/05262021/ncov_global.fasta"
 
 builds:
   haiti_build:
