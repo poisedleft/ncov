@@ -8,11 +8,14 @@
 
 inputs:
   - name: "haiti" 
-    metadata: "/data/gisaid/haiti_05242020.metadata.tsv"
-    sequences: "/data/gisaid/haiti_05242020.sequences.fasta"
+    metadata: "/data/gisaid/downloads/haiti_05242020.metadata.tsv"
+    sequences: "/data/gisaid/downloads/haiti_05242020.sequences.fasta"
   - name: "worldwide"
-    metadata: "/data/gisaid/05262021/ncov_global.tsv"
-    sequences: "/data/gisaid/05262021/ncov_global.fasta"
+    metadata: "/data/gisaid/regions/ncov_global.latest.tsv"
+    sequences: "/data/gisaid/regions/ncov_global.latest.fasta"
+  - name: "northamerica"
+    metadata: "/data/gisaid/regions/ncov_north-america.tsv"
+    sequences: "/data/gisaid/regions/ncov_north-america.fasta"
 
 builds:
   haiti_build:
@@ -34,7 +37,7 @@ subsampling:
     worldwideContext:
       exclude: "--exclude-where 'haiti=yes'" # i.e. subset to sequences _not_ from input `aus`
       group_by: "year"    # NOTE: `augur filter` needs this to use `max_sequences` (TODO)
-      max_sequences: 1000 
+      max_sequences: 2000 
       priorities:
         type: "proximity"
         focus: "allFromHaiti"
@@ -52,4 +55,4 @@ skip_travel_history_adjustment: True
 traits:
   multiple-inputs:
     sampling_bias_correction: 2.5
-    columns: ["country"]
+    columns: ["country", "country_exposure", "division_exposure"]
