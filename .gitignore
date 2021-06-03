@@ -13,6 +13,8 @@ stats.json
 # Sensitive environment variables
 environment*
 
+nohup.out
+
 # Snakemake state dir
 /.snakemake
 snakemake_log
