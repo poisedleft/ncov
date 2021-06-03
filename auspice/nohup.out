@@ -1,0 +1,14 @@
+
+
+---------------------------------------------------
+Auspice server now running at http://localhost:4000
+Serving auspice version 2.26.0
+Looking for datasets in /home/jeffrey_tran/ncov/auspice
+Looking for narratives in /home/jeffrey_tran/ncov/auspice
+---------------------------------------------------
+
+
+GET AVAILABLE returning locally available datasets & narratives
+GET DATASET query received: prefix=/ncov/haiti/build
+GET AVAILABLE returning locally available datasets & narratives
+GET DATASET query received: prefix=/ncov/haiti/build&type=root-sequence
