@@ -1,8 +1,8 @@
 {
-  "title": "Example of a build generated using multiple inputs",
+  "title": "Based on example of a build generated using multiple inputs",
   "build_url": "https://github.com/nextstrain/ncov",
   "maintainers": [
-    {"name": "James Hadfield", "url": "https://bedford.io/people/jameshadfield"}
+    {"name": "Jeffrey Tran", "url": "jeffrey.tran@gmail.com"}
   ],
   "colorings": [
     {

@@ -7,15 +7,15 @@
 #   - my_profiles/example_multiple_inputs/rules.smk
 
 inputs:
-  - name: "haiti" 
+  - name: "haiti" #sammples downloaded from GISAID for "haiti"  
     metadata: "/data/gisaid/downloads/haiti_05242020.metadata.tsv"
     sequences: "/data/gisaid/downloads/haiti_05242020.sequences.fasta"
-  - name: "worldwide"
+  - name: "worldwide" #nextregions/global.. would prefer larger set of sequences
     metadata: "/data/gisaid/regions/ncov_global.latest.tsv"
     sequences: "/data/gisaid/regions/ncov_global.latest.fasta"
-  - name: "northamerica"
-    metadata: "/data/gisaid/regions/ncov_north-america.tsv"
-    sequences: "/data/gisaid/regions/ncov_north-america.fasta"
+    #  - name: "northamerica"
+    #    metadata: "/data/gisaid/regions/ncov_north-america.tsv"
+    #    sequences: "/data/gisaid/regions/ncov_north-america.fasta"
 
 builds:
   haiti_build:
