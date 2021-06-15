@@ -8,8 +8,8 @@
 
 inputs:
   - name: "haiti" #sammples downloaded from GISAID for "haiti"  
-    metadata: "/data/gisaid/downloads/haiti_05242020.metadata.tsv"
-    sequences: "/data/gisaid/downloads/haiti_05242020.sequences.fasta"
+    metadata: "/data/gisaid/downloads/haiti_06152021.metadata.tsv"
+    sequences: "/data/gisaid/downloads/haiti_06152021.sequences.fasta"
   - name: "worldwide" #nextregions/global.. would prefer larger set of sequences
     metadata: "/data/gisaid/regions/ncov_global.latest.tsv"
     sequences: "/data/gisaid/regions/ncov_global.latest.fasta"
