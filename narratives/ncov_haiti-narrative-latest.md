@@ -28,9 +28,9 @@ The recently released batch is the largest yet released for a single timeframe. 
 
 .. as we can see here. Only one is B.1.1.7 though it can't be ruled out as more prevalant without broader sequencing and specific analysis of sampling strategy. One is not specified as part of an emerging_lineage. The rest are P.1. 
 
-# [P.1](http://nextstrain.org/community/poisedleft/ncov/haiti/build?c=country&d=tree&clade=20J/501Y.V3&f_clade_membership=20J/501Y.V3&l=radial)
+# [P.1](http://nextstrain.org/community/poisedleft/ncov/haiti/build?c=country&d=tree&clade=20J/501Y.V3&f_country=Haiti,Brazil,Uraguay,Argentina,Chile,Paraguay,Bolivia,Peru,Ecuador,Colombia,Suriname&f_clade_membership=20J/501Y.V3&l=radial)
 
-There are a handful of introductions of P.1. Unsurprisingly, many are genetically similar to branches originating in Brazil/South America. That was the most likely possibility but is good to confirm. Additional analysis could consist of analyzing volume of air travel combined with presence of variants, both backwards looking to supplement data of this type, and forward looking, to evaluate future risks.  
+There are a handful of introductions of P.1. Unsurprisingly, many are genetically similar to branches originating in South America. That was the most likely possibility but is good to confirm. Additional analysis could consist of analyzing volume of air travel combined with presence of variants, both backwards looking to supplement data of this type, and forward looking, to evaluate future risks.  
 
 Many introductions have only a single sequence, so not much can be inferred. Future samples may provide info in if these are independent introductions or are part of in country grouping.  Many sequences come from one in country clade.. 
 
