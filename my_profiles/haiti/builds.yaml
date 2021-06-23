@@ -8,11 +8,14 @@
 
 inputs:
   - name: "haiti" #sammples downloaded from GISAID for "haiti"  
-    metadata: "/data/gisaid/downloads/haiti_06152021.metadata.tsv"
-    sequences: "/data/gisaid/downloads/haiti_06152021.sequences.fasta"
+    metadata: "/data/gisaid/latest/haiti.latest.tsv"
+    sequences: "/data/gisaid/latest/haiti.latest.fasta"
   - name: "worldwide" #nextregions/global.. would prefer larger set of sequences
-    metadata: "/data/gisaid/regions/ncov_global.latest.tsv"
-    sequences: "/data/gisaid/regions/ncov_global.latest.fasta"
+    metadata: "/data/gisaid/latest/global.latest.tsv"
+    sequences: "/data/gisaid/latest/global.latest.fasta"
+  - name: "south-america" #nextregions/global.. would prefer larger set of sequences
+    metadata: "/data/gisaid/latest/south-america.latest.tsv"
+    sequences: "/data/gisaid/latest/south-america.latest.fasta"
     #  - name: "northamerica"
     #    metadata: "/data/gisaid/regions/ncov_north-america.tsv"
     #    sequences: "/data/gisaid/regions/ncov_north-america.fasta"
@@ -20,6 +23,10 @@ inputs:
 builds:
   haiti_build:
     subsampling_scheme: custom-scheme # use a custom subsampling scheme defined below
+  haiti_splitcontext:
+    subsampling_scheme: splitcontext # use a custom subsampling scheme defined below
+    #  haiti_p1focus:
+    #    subsampling_scheme: P1Focus # use a custom subsampling scheme defined below
 
 # STAGE 1: Input-specific filtering parameters
 filter:
@@ -33,11 +40,13 @@ subsampling:
     # Use metadata key to include ALL from `input1`
     allFromHaiti:
       exclude: "--exclude-where 'haiti!=yes'" # subset to sequences from input `us`
+      group_by: country
+      max_sequences: 200
     # Proximity subsampling from `worldwide` input to provide context 
     worldwideContext:
       exclude: "--exclude-where 'haiti=yes'" # i.e. subset to sequences _not_ from input `aus`
       group_by: "year"    # NOTE: `augur filter` needs this to use `max_sequences` (TODO)
-      max_sequences: 2000 
+      max_sequences: 3000 
       priorities:
         type: "proximity"
         focus: "allFromHaiti"
@@ -45,6 +54,37 @@ subsampling:
       exclude: "--exclude-where 'haiti=yes'"
       group_by: year month
       seq_per_group: 5
+
+subsampling:
+  splitcontext:
+    # Use metadata key to include ALL from `input1`
+    allFromHaitiB:
+      exclude: "--exclude-where 'haiti!=yes'" # subset to sequences from input `us`
+      group_by: country
+      max_sequences: 200
+    # Proximity subsampling from `worldwide` input to provide context 
+    worldwideContextB:
+      exclude: "--include-where 'worldwide=yes'" # i.e. subset to sequences _not_ from input `aus`
+      group_by: "year"    # NOTE: `augur filter` needs this to use `max_sequences` (TODO)
+      max_sequences: 1000 
+      priorities:
+        type: "proximity"
+        focus: "allFromHaiti"
+    southamericaContextB:
+      exclude: "--include-where 'south-america=yes'" # i.e. subset to sequences _not_ from input `aus`
+      group_by: "year"    # NOTE: `augur filter` needs this to use `max_sequences` (TODO)
+      max_sequences: 2000 
+      priorities:
+        type: "proximity"
+        focus: "allFromHaiti"
+    worldwideBackgroundB:
+      exclude: "--exclude-where 'haiti=yes'"
+      group_by: year month region
+      seq_per_group: 5
+
+
+
+
 
 files:
   auspice_config: "my_profiles/haiti/my_auspice_config.json"
@@ -55,4 +95,4 @@ skip_travel_history_adjustment: True
 traits:
   multiple-inputs:
     sampling_bias_correction: 2.5
-    columns: ["country", "country_exposure", "division_exposure"]
+    columns: ["country", "country_exposure", "division_exposure", "confidence"]
